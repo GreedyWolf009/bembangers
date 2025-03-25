@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEMBANGERS - Product Recommendations</title>
+    <style>
+        
+        .nav-arrows {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+        }
+        .arrow-button {
+            font-size: 2em;
+            background: #D7A86E;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .arrow-button:hover {
+            background: #A67B5B;
+        }
+        
+        /* Modern Feminine Brownish Palette */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #FAF3E0;
+            color: #5D4037;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* BEMBANGERS Logo */
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            background: #D7A86E;
+            padding: 8px 15px;
+            border-radius: 5px;
+            user-select: none;
+            color: white;
+            z-index: 1000;
+        }
+
+        /* Header Navigation */
+        .header {
+            background: #8D6E63;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+        .header a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: #A67B5B;
+            transition: background 0.3s;
+        }
+        .header a:hover {
+            background: #D7A86E;
+        }
+
+        /* Content Box */
+        .container {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        /* Slide Style */
+        .slide {
+            display: none;
+            background: #F5E1DA;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .slide.active {
+            display: block;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Headings */
+        h2 {
+            font-size: 2.5em;
+            color: #8D6E63;
+        }
+
+        /* Product Images */
+        .product-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        /* Shopee Links */
+        .shopee-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #D7A86E;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .shopee-link:hover {
+            background: #A67B5B;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        button {
+            background: #D7A86E;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #A67B5B;
+        }
+
+        /* Diagram Page */
+        .diagram-page {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .diagram-page img {
+            max-width: 90%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- BEMBANGERS Logo -->
+    <div class="logo" onclick="toggleVisibility()">BEMBANGERS</div>
+
+    <!-- Top Menu -->
+    <div class="header">
+        <a href="#" onclick="jumpToSlide(2)">Webcam</a>
+        <a href="#" onclick="jumpToSlide(3)">Microphone</a>
+        <a href="#" onclick="jumpToSlide(4)">Audio Interface</a>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="slide active" id="slide1">
+            <h2>Mini PC</h2>
+            <img src="nuc.jpg" alt="Intel NUC 11" class="product-image">
+            <p><strong>Recommendation:</strong> Intel NUC 11 Essential Kit</p>
+            <p><strong>Estimated Cost:</strong> PHP 20,000</p>
+            <a href="https://shopee.ph/Asus-Intel-NUC-12-Pro-(NUC12WSK)-Core-I3-12TH-Gen-I3-1220P-i.379168804.26574893530?sp_atk=f5379647-6142-4b22-bcfd-2e6bb9ee704e&xptdk=f5379647-6142-4b22-bcfd-2e6bb9ee704e " target="_blank" class="shopee-link">Buy on Shopee</a>
+        </div>
+
+        <div class="slide" id="slide2">
+            <h2>Webcam</h2>
+            <img src="JABRA.jpg" alt="Jabra PanaCast 50 " class="product-image">
+            <p><strong>Recommendation:</strong> Jabra PanaCast 50 – Intelligent 180° Panoramic-4K Meeting Room Video Camera</p>
+            <p><strong>Estimated Cost:</strong> PHP 79,000</p>
+            <a href="https://shopee.ph/Jabra-PanaCast-50-–-Intelligent-180°-Panoramic-4K-Meeting-Room-Video-Camera-with-Stand-Remote-and-i.308019531.21494307367?sp_atk=82b51c58-5c24-4657-a399-0c232d0d42de&xptdk=82b51c58-5c24-4657-a399-0c232d0d42de" target="_blank" class="shopee-link">Buy on Shopee</a>
+        </div>
+
+        <div class="slide" id="slide3">
+            <h2>Wireless Microphone</h2>
+            <img src="BOYA.jpg" class="product-image">
+            <p><strong>Recommendation:</strong> BOYA BY-WM4 Pro-K2 </p>
+            <p><strong>Estimated Cost:</strong> PHP 16,899</p>
+            <a href="https://shopee.ph/BOYA-BY-WM4-PRO-K1-K2-2.4GHz-Wireless-Microphone-Dual-Channel-Compatible-with-iPhone-Android-Smartphone-DSLR-Canon-Sony-Consumer-Camcorders-for-Vlog-Video-Podcast-Mobile-i.589909774.14704429368?sp_atk=f1af80d5-fad5-463e-a2a8-3ac3470e4d11&xptdk=f1af80d5-fad5-463e-a2a8-3ac3470e4d11" target="_blank" class="shopee-link">Buy on Shopee</a>
+        </div>
+
+        <div class="slide" id="slide4">
+            <h2>Audio Interface</h2>
+            <img src="FOCUSRITE.jpg" alt="Focusrite Scarlett" class="product-image">
+            <p><strong>Recommendation:</strong> Focusrite Scarlett Solo (3rd Gen)</p>
+            <p><strong>Estimated Cost:</strong> PHP 9,000</p>
+            <a href="https://shopee.ph/Focusrite-Scarlett-Solo-4th-Gen-USB-1-Mic-In-Audio-Interface-i.44546713.22385966427?sp_atk=d0944218-6896-40c2-9cd3-64b4cc67cdad&xptdk=d0944218-6896-40c2-9cd3-64b4cc67cdad" target="_blank" class="shopee-link">Buy on Shopee</a>
+        </div>
+
+        <div class="nav-buttons">
+            <button onclick="prevSlide()">Previous</button>
+            <button onclick="nextSlide()">Next</button>
+            <button onclick="showDiagram()">View Diagram</button>
+        </div>
+    </div>
+
+    <!-- Diagram Page -->
+    <div class="diagram-page" id="diagramPage">
+        <img src="https://via.placeholder.com/800x500?text=Setup+Diagram" alt="Setup Diagram">
+        <button onclick="hideDiagram()">Back</button>
+    </div>
+    <div class="nav-arrows">
+        <button onclick="location.href='index.html'" class="arrow-button">←</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.getElementById(`slide${n}`).classList.add('active');
+        }
+        function nextSlide() { currentSlide = (currentSlide % 4) + 1; showSlide(currentSlide); }
+        function prevSlide() { currentSlide = (currentSlide - 2 + 4) % 4 + 1; showSlide(currentSlide); }
+        function showDiagram() { document.querySelector('.container').style.display = 'none'; document.getElementById('diagramPage').style.display = 'flex'; }
+        function hideDiagram() { document.querySelector('.container').style.display = 'block'; document.getElementById('diagramPage').style.display = 'none'; }
+        function toggleVisibility() { document.querySelector('.container').style.display = document.querySelector('.container').style.display === 'none' ? 'block' : 'none'; }
+    </script>
+</body>
+</html>
